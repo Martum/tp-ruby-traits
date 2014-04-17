@@ -4,7 +4,7 @@ class Trait
     puts unNombre
   end
 
-  def self.method(unNombre, unBloque)
+  def self.method(unNombre, &unBloque)
     puts unNombre
   end
 
