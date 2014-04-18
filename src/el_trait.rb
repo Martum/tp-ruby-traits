@@ -1,0 +1,2 @@
+class ElTrait
+end
