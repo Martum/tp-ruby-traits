@@ -61,3 +61,6 @@ end
 
 objetito = UnTrait.new
 puts objetito.te_resto_10(5)
+
+otroObjetito = UnTrait.new
+puts otroObjetito.te_sumo_20(1)
