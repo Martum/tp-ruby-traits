@@ -1,3 +1,4 @@
+# Clase de la que se instanciaran los objetos-clases Traits
 class ElTrait
   attr_accessor :metodos
 
@@ -9,6 +10,8 @@ class ElTrait
     metodos[nombre_metodo] = bloque
   end
 end
+
+# La magia
 class Trait
 
   @@trait_name = nil
@@ -33,6 +36,7 @@ class Trait
   end
 end
 
+# Agregar 'uses' a Object
 class Object
   def uses(unTrait)
     unTrait.metodos.each do |unMetodo, unBloque|
@@ -59,6 +63,7 @@ class UnTrait
   uses Jose
 end
 
+# Ejemplos de uso
 objetito = UnTrait.new
 puts objetito.te_resto_10(5)
 
