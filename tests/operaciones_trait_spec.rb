@@ -1,5 +1,4 @@
-require 'rspec'
-
+require '../src/trait'
 # Temporalmente ACA - Falta ordenar y probar
 # Definir el trait
 Trait.define do
@@ -30,13 +29,13 @@ end
 
 # Ejemplos de uso
 objetito = Matematica.new
-puts objetito.te_resto_10(6)
+puts objetito.te_resto_10(6) # => -4
 
 otroObjetito = Matematica.new
-puts otroObjetito.te_sumo_20(1)
+puts otroObjetito.te_sumo_20(1) # => 11 (Esta sobrescrito)
 
 otroObjetito3 = Matematica2.new
-puts otroObjetito3.te_sumo_20(1)
+puts otroObjetito3.te_sumo_20(1) # => 21
 
 describe 'Trait Framework' do
 

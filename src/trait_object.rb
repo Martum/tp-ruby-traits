@@ -16,7 +16,7 @@ class TraitObject
 
   # Clona este objeto
   def clonar()
-    objeto_clon = TraitObject.new
+    objeto_clon = self.class.new
     objeto_clon.metodos = self.metodos.clone
     objeto_clon
   end

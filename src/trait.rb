@@ -1,3 +1,6 @@
+require '../src/open_object'
+require '../src/trait_object'
+
 # La magia
 class Trait
 
