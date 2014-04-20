@@ -23,3 +23,5 @@ class Trait
     Object.const_set(nombre, objeto)
   end
 end
+
+objeto = Trait.new

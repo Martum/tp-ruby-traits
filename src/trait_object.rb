@@ -35,3 +35,6 @@ class TraitObject
     objeto_clon
   end
 end
+
+
+sdfsdfsdf
