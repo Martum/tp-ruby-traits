@@ -31,7 +31,12 @@ class TraitObject
     # Crea una copia de este Objeto, remueve el metodo indicado y devuelve el nuevo objeto
     objeto_clon = self.clonar
     objeto_clon.remover_metodo(un_metodo)
+    objeto_clon
+  end
 
+  def +(un_trait)
+    objeto_clon = self.clonar
+    objeto_clon.metodos = objeto_clon.metodos.merge(un_trait.metodos) { |key, oldval, newval| raise 'duplicated_method'}
     objeto_clon
   end
 end
