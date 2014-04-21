@@ -17,11 +17,6 @@ end
 # Una clase que lo use
 class Matematica
   uses (OperacionesMatematicas - :te_sumo_20)
-
-  # Pisa la definida en el Trait por estar mas abajo
-  def te_sumo_20(unNumero)
-    unNumero + 10
-  end
 end
 
 class Matematica2

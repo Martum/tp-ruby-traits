@@ -14,6 +14,10 @@ class TraitObject
     metodos.delete(nombre_metodo)
   end
 
+  def unir_tabla_de_metodos(una_tabla_de_metodos, otra_tabla_de_metodos)
+    una_tabla_de_metodos.merge(otra_tabla_de_metodos) { |key, oldval, newval| raise 'duplicated_method'}
+  end
+
   # Clona este objeto
   def clonar()
     objeto_clon = self.class.new
@@ -36,7 +40,7 @@ class TraitObject
 
   def +(un_trait)
     objeto_clon = self.clonar
-    objeto_clon.metodos = objeto_clon.metodos.merge(un_trait.metodos) { |key, oldval, newval| raise 'duplicated_method'}
+    objeto_clon.metodos = self.unir_tabla_de_metodos(objeto_clon.metodos, un_trait.metodos)
     objeto_clon
   end
 end
