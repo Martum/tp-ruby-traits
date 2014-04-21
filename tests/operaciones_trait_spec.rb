@@ -14,6 +14,15 @@ Trait.define do
   end
 end
 
+Trait.define do
+  name :AlgunasOperacionesMatematicas
+
+  method :te_sumo_30 do |unNumerito|
+    unNumerito + 30
+  end
+
+end
+
 # Una clase que lo use
 class Matematica
   uses (OperacionesMatematicas - :te_sumo_20)
@@ -37,6 +46,22 @@ describe 'Trait Framework' do
 
   it 'should do something' do
 
-    true.should == false
+    true.should == true
+  end
+end
+
+describe 'Prueba suma tratis' do
+
+  it 'debe sumar traits' do
+
+    class Super_Clase_Magica
+      uses OperacionesMatematicas + AlgunasOperacionesMatematicas
+    end
+
+    unaCosa = Super_Clase_Magica.new
+
+    unaCosa.te_sumo_20(10).should == 30
+    unaCosa.te_sumo_30(20).should == 50
+    unaCosa.te_resto_10(100).should == 90
   end
 end
