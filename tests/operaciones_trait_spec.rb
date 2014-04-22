@@ -23,6 +23,14 @@ Trait.define do
 
 end
 
+Trait.define do
+  name :Algunas
+
+  method :te_sumo_20 do |unNumerito|
+    "ogmfdo"
+  end
+end
+
 # Una clase que lo use
 class Matematica
   uses (OperacionesMatematicas - :te_sumo_20)
@@ -36,8 +44,8 @@ end
 objetito = Matematica.new
 puts objetito.te_resto_10(6) # => -4
 
-otroObjetito = Matematica.new
-puts otroObjetito.te_sumo_20(1) # => 11 (Esta sobrescrito)
+#otroObjetito = Matematica.new
+#puts otroObjetito.te_sumo_20(1) # => 11 (Esta sobrescrito)
 
 otroObjetito3 = Matematica2.new
 puts otroObjetito3.te_sumo_20(1) # => 21
@@ -63,5 +71,16 @@ describe 'Prueba suma tratis' do
     unaCosa.te_sumo_20(10).should == 30
     unaCosa.te_sumo_30(20).should == 50
     unaCosa.te_resto_10(100).should == 90
+  end
+
+  it 'debe tirar error' do
+
+    expect {
+      class Clas
+        uses OperacionesMagicas + Algunas
+      end
+    }.to raise_error
+
+
   end
 end
