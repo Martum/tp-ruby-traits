@@ -50,17 +50,9 @@ end
 #otroObjetito3 = Matematica2.new
 #puts otroObjetito3.te_sumo_20(1) # => 21
 
-describe 'Trait Framework' do
-
-  it 'should do something' do
-
-    true.should == true
-  end
-end
-
 describe 'Prueba del uses' do
 
-  it 'debe poder usar el metodo definido en el trait' do
+  it 'poder usar el metodo definido en el trait' do
 
     class Super_Clase_Magica
       uses OperacionesMatematicas
@@ -76,7 +68,7 @@ end
 
 describe 'Prueba suma tratis' do
 
-  it 'debe sumar traits y poder usar los metodos de ambos' do
+  it 'sumar traits y poder usar los metodos de ambos' do
 
     class Super_Clase_Magica
       uses OperacionesMatematicas + AlgunasOperacionesMatematicas
@@ -89,7 +81,7 @@ describe 'Prueba suma tratis' do
     unaCosa.te_resto_10(100).should == 90
   end
 
-  it 'debe tirar error ya que hay metodos duplicados' do
+  it 'suma cuando hay metodos duplicados' do
 
     expect {
       class Super_Clase_Magica
@@ -101,7 +93,7 @@ end
 
 describe 'Prueba resta de metodos' do
 
-  it 'debe tirar error ya que el metodo fue removido' do
+  it 'resta cuando el metodo fue removido' do
 
     class Matematica
       uses (OperacionesMatematicas - :te_sumo_20)
