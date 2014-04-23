@@ -54,11 +54,11 @@ describe 'Prueba del uses' do
 
   it 'poder usar el metodo definido en el trait' do
 
-    class Super_Clase_Magica
+    class SuperClaseMagica
       uses OperacionesMatematicas
     end
 
-    unaCosa = Super_Clase_Magica.new
+    unaCosa = SuperClaseMagica.new
 
     unaCosa.te_sumo_20(10).should == 30
     unaCosa.te_resto_10(2).should == -8
@@ -70,11 +70,11 @@ describe 'Prueba suma tratis' do
 
   it 'sumar traits y poder usar los metodos de ambos' do
 
-    class Super_Clase_Magica
+    class SuperClaseMagica
       uses OperacionesMatematicas + AlgunasOperacionesMatematicas
     end
 
-    unaCosa = Super_Clase_Magica.new
+    unaCosa = SuperClaseMagica.new
 
     unaCosa.te_sumo_20(10).should == 30
     unaCosa.te_sumo_30(20).should == 50
@@ -102,5 +102,34 @@ describe 'Prueba resta de metodos' do
     otroObjetito = Matematica.new
 
     expect {otroObjetito.te_sumo_20(1)}.to raise_exception
+  end
+end
+
+describe 'Prueba alias de metodos' do
+  it 'alias a un metodo existente por uno inexistente' do
+    class Matematica
+      uses OperacionesMatematicas << (:te_sumo_20 > :te_agrego_20)
+    end
+
+    objetoMatematica = Matematica.new
+
+    objetoMatematica.te_sumo_20(2).should be 22
+    objetoMatematica.te_agrego_20(3).should be 23
+  end
+
+  it 'alias a un metodo inexistente por uno inexistente' do
+    expect {
+      class Matematica
+        uses OperacionesMatematicas << (:te_sumo_300 > :te_agrego_20)
+      end
+    }.to raise_exception
+  end
+
+  it 'alias de un metodo existente por uno existente' do
+    expect {
+      class Matematica
+        uses OperacionesMatematicas << (:te_sumo_20 > :te_resto_10)
+      end
+    }.to raise_exception
   end
 end

@@ -1,4 +1,5 @@
 require '../src/open_object'
+require '../src/open_symbol'
 require '../src/trait_object'
 
 # La magia
