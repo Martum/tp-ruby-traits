@@ -122,7 +122,7 @@ describe 'Prueba alias de metodos' do
       class Matematica
         uses OperacionesMatematicas << (:te_sumo_300 > :te_agrego_20)
       end
-    }.to raise_exception
+    }.to raise_exception(NoMethodError)
   end
 
   it 'alias de un metodo existente por uno existente' do
@@ -130,7 +130,7 @@ describe 'Prueba alias de metodos' do
       class Matematica
         uses OperacionesMatematicas << (:te_sumo_20 > :te_resto_10)
       end
-    }.to raise_exception
+    }.to raise_error
   end
 end
 
