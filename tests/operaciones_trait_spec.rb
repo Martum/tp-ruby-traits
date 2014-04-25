@@ -133,3 +133,11 @@ describe 'Prueba alias de metodos' do
     }.to raise_exception
   end
 end
+
+describe 'Prueba de uses en otros objetos' do
+  it 'un numero intenta usar uses' do
+      expect{
+        9.uses OperacionesMatematicas
+      }.to raise_error(NoMethodError)
+  end
+end
