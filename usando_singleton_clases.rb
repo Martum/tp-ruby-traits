@@ -1,7 +1,8 @@
 # Clase de la que se instanciaran los objetos-clases Traits
 class Trait
   attr_accessor :metodos 
-  @trait_name	
+  @trait_name	#Cada instancia de trait tiene su nombre, pero no sé cómo especificar que no se puede modificar
+		#por eso no lo considere un accessor (lo otro sería nunca jamás usar el getter)
 
   def initialize
     @metodos = Hash.new
@@ -82,7 +83,8 @@ class Trait
     objeto_clon
   end
 
-  def self.dar_nombre
+#Uso self.nombre_del_metodo porque en este caso self es la clase (Trait) entonces, estaría definiendo los métodos en la singleton class de Trait (o lo que es lo mismo, son métodos de clase)
+  def self.dar_nombre 
 	@trait_name
   end
 
