@@ -32,18 +32,18 @@ Trait.define do
 end
 
 Trait.define do
-  name :Primero
+  name :PrimerTrait
 
   method :duplicated do |unArgumento|
-    puts 'hola' + unArgumento
+     unArgumento + 20
   end
 end
 
 Trait.define do
-  name :Segundo
+  name :SegundoTrait
 
   method :duplicated do |unArgumento|
-    puts 'santi' + unArgumento
+     unArgumento + 30
   end
 end
 
@@ -100,12 +100,12 @@ describe 'Prueba suma tratis' do
   it 'si hay dos metodos duplicados, los tiene que ejercutar ambos' do
 
     class ClasePrueba
-      uses Primero + Segundo
+      uses PrimerTrait + SegundoTrait
     end
 
     instancia = ClasePrueba.new
 
-    instancia.duplicated 'hola'
+    instancia.duplicated(10).should == 40
   end
 end
 
