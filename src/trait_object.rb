@@ -18,7 +18,7 @@ class TraitObject
   end
 
   def unir_metodos(otro_hash)
-      Trait.resolver_conflicto otro_hash, self
+    self.metodos.merge!(otro_hash) { |key, oldval, newval| Trait.resolver_conflicto(oldval, newval)}
   end
 
   def tengo_metodo?(un_metodo)

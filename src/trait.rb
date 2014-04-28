@@ -29,7 +29,7 @@ class Trait
     @@resolucion_de_conflictos = metodo_de_resolucion
   end
 
-  def self.resolver_conflicto (otro_hash, objeto)
-    @@resolucion_de_conflictos.union otro_hash, objeto
+  def self.resolver_conflicto (metodo_old, metodo_new)
+    @@resolucion_de_conflictos.resolver_conflicto(metodo_old, metodo_new)
   end
 end
