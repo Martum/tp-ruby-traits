@@ -171,6 +171,15 @@ describe 'Prueba de splats' do
     }
 
     tercer_bloque.call(5,3,2)
+
+    suma_bloque = lambda { |primero, segundo| primero + segundo }
+    multiplica_bloque = lambda { |primero, segundo| primero * segundo }
+
+    opera_con_bloques = lambda { |unNumero, otroNumero|
+      multiplica_bloque.call(suma_bloque.call(unNumero, otroNumero), otroNumero)
+    }
+
+    opera_con_bloques.call(2,3).should == 15
   end
 
 
