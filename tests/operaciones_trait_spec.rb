@@ -47,6 +47,7 @@ Trait.define do
   end
 end
 
+
 # Una clase que lo use
 #class Matematica
 # uses (OperacionesMatematicas - :te_sumo_20)
