@@ -31,6 +31,22 @@ Trait.define do
   end
 end
 
+Trait.define do
+  name :Primero
+
+  method :duplicated do |unArgumento|
+    puts 'hola' + unArgumento
+  end
+end
+
+Trait.define do
+  name :Segundo
+
+  method :duplicated do |unArgumento|
+    puts 'santi' + unArgumento
+  end
+end
+
 # Una clase que lo use
 #class Matematica
 # uses (OperacionesMatematicas - :te_sumo_20)
@@ -81,13 +97,15 @@ describe 'Prueba suma tratis' do
     unaCosa.te_resto_10(100).should == 90
   end
 
-  it 'suma cuando hay metodos duplicados' do
+  it 'si hay dos metodos duplicados, los tiene que ejercutar ambos' do
 
-    expect {
-      class Super_Clase_Magica
-        uses OperacionesMagicas + Algunas
-      end
-    }.to raise_exception
+    class ClasePrueba
+      uses Primero + Segundo
+    end
+
+    instancia = ClasePrueba.new
+
+    instancia.duplicated 'hola'
   end
 end
 
@@ -154,4 +172,6 @@ describe 'Prueba de splats' do
 
     tercer_bloque.call(5,3,2)
   end
+
+
 end

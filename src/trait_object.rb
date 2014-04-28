@@ -15,7 +15,7 @@ class TraitObject
   end
 
   def unir_metodos(otro_hash)
-    self.metodos.merge!(otro_hash) { |key, oldval, newval| raise 'duplicated_method'}
+    self.metodos.merge!(otro_hash) { |key, oldval, newval| Proc.new { |*campos| oldval.call(*campos); newval.call(*campos)}}
   end
 
   def tengo_metodo?(un_metodo)
