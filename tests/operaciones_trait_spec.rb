@@ -141,3 +141,17 @@ describe 'Prueba de uses en otros objetos' do
       }.to raise_error(NoMethodError)
   end
 end
+
+describe 'Prueba de splats' do
+  it 'probar pasarle argumentos a un bloque con un splat' do
+    un_bloque = lambda { |uno, dos, tres| puts "#{uno} + #{dos} + #{tres}" }
+    otro_bloque = lambda { |uno, dos, tres| puts "#{uno} * #{dos} * #{tres}" }
+
+    tercer_bloque = lambda { |*campos|
+        un_bloque.call(*campos)
+        otro_bloque.call(*campos)
+    }
+
+    tercer_bloque.call(5,3,2)
+  end
+end
