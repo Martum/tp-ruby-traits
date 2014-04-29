@@ -126,7 +126,7 @@ describe 'Prueba suma tratis' do
     instancia.duplicated(10).should == 40
   end
 
-  it 'PINCHA si hay dos metodos duplicados, los tiene que correr en row' do
+  it 'si hay dos metodos duplicados, los tiene que correr en row' do
     class TestModificanEstado
       attr_accessor :variable1, :variable2
       uses ModificoEstadoVariable1 + ModificoEstadoVariable2
