@@ -47,6 +47,21 @@ Trait.define do
   end
 end
 
+Trait.define do
+  name :ModificoEstadoVariable1
+
+  method :modificar_estado do
+    self.variable1 = 40
+  end
+end
+
+Trait.define do
+  name :ModificoEstadoVariable2
+
+  method :modificar_estado do
+    self.variable2 = 50
+  end
+end
 
 # Una clase que lo use
 #class Matematica
@@ -107,6 +122,25 @@ describe 'Prueba suma tratis' do
     instancia = ClasePrueba.new
 
     instancia.duplicated(10).should == 40
+  end
+
+  it 'PINCHA si hay dos metodos duplicados, los tiene que correr en row' do
+    class TestModificanEstado
+      attr_accessor :variable1, :variable2
+      uses ModificoEstadoVariable1 + ModificoEstadoVariable2
+
+      def initialize
+        @variable1 = 1
+        @variable1 = 2
+      end
+    end
+
+
+    instancia = TestModificanEstado.new
+    instancia.modificar_estado
+
+    instancia.variable1.should == 40
+    instancia.variable1.should == 50
   end
 end
 
