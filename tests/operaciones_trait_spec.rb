@@ -52,6 +52,7 @@ Trait.define do
 
   method :modificar_estado do
     self.variable1 = 40
+    puts "hola1"
   end
 end
 
@@ -60,6 +61,7 @@ Trait.define do
 
   method :modificar_estado do
     self.variable2 = 50
+    puts "hola2"
   end
 end
 
@@ -131,7 +133,7 @@ describe 'Prueba suma tratis' do
 
       def initialize
         @variable1 = 1
-        @variable1 = 2
+        @variable2 = 2
       end
     end
 
@@ -140,7 +142,7 @@ describe 'Prueba suma tratis' do
     instancia.modificar_estado
 
     instancia.variable1.should == 40
-    instancia.variable1.should == 50
+    instancia.variable2.should == 50
   end
 end
 
