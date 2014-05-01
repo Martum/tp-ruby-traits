@@ -1,6 +1,6 @@
 require 'rspec'
 require '../src/trait'
-# Temporalmente ACA - Falta ordenar y probar
+
 # Definir el trait
 Trait.define do
   name :OperacionesMatematicas
