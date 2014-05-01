@@ -1,3 +1,6 @@
+require '../src/trait'
+
+
 # Clase de la que se instanciaran los objetos-clases Traits
 class TraitObject
   attr_accessor :metodos
@@ -15,7 +18,7 @@ class TraitObject
   end
 
   def unir_metodos(otro_hash)
-    self.metodos.merge!(otro_hash) { |key, oldval, newval| raise 'duplicated_method'}
+    self.metodos.merge!(otro_hash) { |key, oldval, newval| Trait.resolver_conflicto(oldval, newval)}
   end
 
   def tengo_metodo?(un_metodo)
