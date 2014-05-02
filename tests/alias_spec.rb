@@ -28,7 +28,7 @@ describe 'Prueba alias de metodos' do
 
   it 'alias a un metodo inexistente por uno inexistente' do
     expect {
-      class Matematica
+      class Matematica2
         uses OperacionesMatematicas << (:te_sumo_300 > :te_agrego_20)
       end
     }.to raise_exception(NoMethodError)
@@ -36,7 +36,7 @@ describe 'Prueba alias de metodos' do
 
   it 'alias de un metodo existente por uno existente' do
     expect {
-      class Matematica
+      class Matematica3
         uses OperacionesMatematicas << (:te_sumo_20 > :te_resto_10)
       end
     }.to raise_error

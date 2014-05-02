@@ -3,7 +3,7 @@ require '../src/trait'
 
 # Definir el trait
 Trait.define do
-  name :OperacionesMatematicas
+  name :OperacionesMatematicas2
 
   method :te_sumo_20 do |unNumerito|
     unNumerito + 20
@@ -38,7 +38,7 @@ describe 'Prueba del uses' do
   it 'Usar el metodo definido en el trait' do
 
     class SuperClaseMagica
-      uses OperacionesMatematicas
+      uses OperacionesMatematicas2
     end
 
     unaCosa = SuperClaseMagica.new
@@ -52,7 +52,7 @@ end
 describe 'Usando uses en otros objetos' do
   it 'un numero intenta usar uses' do
       expect{
-        9.uses OperacionesMatematicas
+        9.uses OperacionesMatematicas2
       }.to raise_error(NoMethodError)
   end
 end

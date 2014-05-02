@@ -17,12 +17,12 @@ describe 'Rsta de metodos' do
 
   it 'resta cuando el metodo fue removido' do
 
-    class Matematica
+    class Matematica4
       uses (OperacionesMatematicas - :te_sumo_20)
     end
 
-    otroObjetito = Matematica.new
+    otroObjetito = Matematica4.new
 
-    expect {otroObjetito.te_sumo_20(1)}.to raise_exception
+    expect {otroObjetito.te_sumo_20(1)}.to raise_error
   end
 end
