@@ -1,7 +1,7 @@
 require '../src/open_object'
 require '../src/open_symbol'
 require '../src/trait_object'
-require '../src/ejecutar_ambos_metodos'
+require '../src/ejecutar_ambos_metodos_resolucion'
 # La magia
 class Trait
 
