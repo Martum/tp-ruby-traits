@@ -3,10 +3,11 @@ require '../src/trait'
 
 # Clase de la que se instanciaran los objetos-clases Traits
 class TraitObject
-  attr_accessor :metodos
+  attr_accessor :metodos, :hash_resoluciones
 
   def initialize
     @metodos = Hash.new
+    @hash_resoluciones = Hash.new
   end
 
   def agregar_metodo(nombre_metodo, &bloque)
@@ -18,7 +19,9 @@ class TraitObject
   end
 
   def unir_metodos(otro_hash)
-    self.metodos.merge!(otro_hash) { |key, oldval, newval| Trait.resolver_conflicto(oldval, newval)}
+    self.metodos.merge!(otro_hash) {
+        |key, oldval, newval| hash_resolucion[key].resolver_conflicto(oldval, newval)
+    }
   end
 
   def tengo_metodo?(un_metodo)
@@ -81,6 +84,12 @@ class TraitObject
     # Crea una copia de este Objeto, aliasea el metodo indicado y devuelve el nuevo objeto
     objeto_clon = self.clonar
     objeto_clon.crear_alias_metodo(metodo_old, metodo_new)
+    objeto_clon
+  end
+
+  def <(hash_resoluciones)
+    objeto_clon = self.clonar
+    objeto_clon,hash_resoluciones = hash_resoluciones
     objeto_clon
   end
 end

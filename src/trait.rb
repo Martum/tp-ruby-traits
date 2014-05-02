@@ -6,7 +6,7 @@ require '../src/ejecutar_ambos_metodos_resolucion'
 class Trait
 
   @@trait_name = nil
-  @@resolucion_de_conflictos = EjecutarAmbosMetodos
+  #@@resolucion_de_conflictos = EjecutarAmbosMetodos
 
   def self.name(un_nombre)
     @@trait_name = un_nombre
@@ -25,11 +25,11 @@ class Trait
     Object.const_set(nombre, objeto)
   end
 
-  def self.resolucion_conflictos_segun(metodo_de_resolucion)
-    @@resolucion_de_conflictos = metodo_de_resolucion
-  end
+  #def self.resolucion_conflictos_segun(metodo_de_resolucion)
+  #  @@resolucion_de_conflictos = metodo_de_resolucion
+  #end
 
-  def self.resolver_conflicto (metodo_old, metodo_new)
-    @@resolucion_de_conflictos.resolver_conflicto(metodo_old, metodo_new)
-  end
+  #def self.resolver_conflicto (metodo_old, metodo_new)
+  #  @@resolucion_de_conflictos.resolver_conflicto(metodo_old, metodo_new)
+  #end
 end
