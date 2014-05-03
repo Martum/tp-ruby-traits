@@ -73,7 +73,7 @@ describe 'Resolver conflictos' do
     instancia.variable2.should == 50
   end
 
-  it 'si hay dos metodos duplicados, tiene que aplicarle una funcion y devolver el ultimo valor'
+  it 'si hay dos metodos duplicados, tiene que aplicarle una funcion y devolver el ultimo valor' do
     class TestSumaResultados
       uses Primero + (Segundo < {:duplicated => FoldLResolucion.new(lambda { |un_numero, otro_numero| un_numero + otro_numero})})
     end
@@ -81,4 +81,6 @@ describe 'Resolver conflictos' do
     instancia = TestSumaResultados.new
 
     instancia.duplicated.should == 90
+  end
+
 end
