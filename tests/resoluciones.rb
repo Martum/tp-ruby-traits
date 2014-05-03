@@ -1,5 +1,5 @@
 require '../src/trait'
-require '../src/ejecutar_ambos_metodos'
+require '../src/ejecutar_ambos_metodos_resolucion'
 
 Trait.define do
   name :Primero
@@ -18,7 +18,7 @@ Trait.define do
 end
 
 class MiClase
-  uses (Segundo < {:duplicated => EjecutarAmbosMetodosResolucion.new})
+  uses Primero + (Segundo < {:duplicated => EjecutarAmbosMetodosResolucion.new})
 end
 
 instancia = MiClase.new

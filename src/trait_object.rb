@@ -98,7 +98,11 @@ class TraitObject
 
   def <(hash_resoluciones)
     objeto_clon = self.clonar
-    objeto_clon.hash_resoluciones = hash_resoluciones
+    hash_resoluciones.each_with_index { |key, value| objeto_clon.agregar_resoluciones(key, value) }
     objeto_clon
+  end
+
+  def agregar_resoluciones(key, value)
+    hash_resoluciones[key] = value
   end
 end
