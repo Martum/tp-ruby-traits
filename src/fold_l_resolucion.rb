@@ -6,12 +6,13 @@ class FoldLResolucion
   end
 
   def resolver_conflicto(method_name, old_method, new_method)
-    Proc.new do |*campos|
+    funcion = funcion_resuelve
+    lambda { |*campos|
       res1 = self.instance_exec(*campos, &old_method)
       res2 = self.instance_exec(*campos, &new_method)
 
-      self.instance_exec(res1, res2, funcion_resuelve)
-    end
+      funcion.call(res1, res2)
+    }
   end
 
 end
