@@ -18,6 +18,7 @@ class TraitObject
     metodos.delete(nombre_metodo)
   end
 
+  # Resuelve los conflictos, segun corresponda, de los Traits que se suman
   def resolver_conflicto(nombre_metodo, old_metodo, new_metodo, hash_resoluciones)
     if(hash_resoluciones.has_key?(nombre_metodo))
       hash_resoluciones[nombre_metodo].resolver_conflicto(nombre_metodo, old_metodo, new_metodo)
@@ -26,6 +27,7 @@ class TraitObject
     end
   end
 
+  # Une los metodos de dos traits
   def unir_metodos(hash_metodos, hash_resoluciones)
     self.metodos.merge!(hash_metodos) { |key, oldval, newval|
       resolver_conflicto(key, oldval, newval, hash_resoluciones)
@@ -96,6 +98,7 @@ class TraitObject
     objeto_clon
   end
 
+  # Hash para Resolver Conflictos
   def <(hash_resoluciones)
     objeto_clon = self.clonar
     objeto_clon.hash_resoluciones.merge!(hash_resoluciones)
