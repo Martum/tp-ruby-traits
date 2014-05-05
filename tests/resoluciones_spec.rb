@@ -2,6 +2,7 @@ require 'rspec'
 require '../src/trait'
 require '../src/ejecutar_ambos_metodos_resolucion'
 require '../src/fold_l_resolucion'
+require '../src/primer_verdadero_resolucion'
 
 Trait.define do
   name :ModificoEstadoVariable1
@@ -32,6 +33,22 @@ Trait.define do
 
   method :duplicated do
     40
+  end
+end
+
+Trait.define do
+  name :Tercero
+
+  method :duplicated do
+    5
+  end
+end
+
+Trait.define do
+  name :Cuarto
+
+  method :duplicated do
+    -2
   end
 end
 
@@ -83,4 +100,33 @@ describe 'Resolver conflictos' do
     instancia.duplicated.should == 90
   end
 
+  it 'si hay dos metodos duplicados, tiene que aplicarle una funcion y el primer resultado verdadero es el que devuelve' do
+    class TestPrimerVerdadero
+      uses Tercero + (Cuarto < {:duplicated => PrimerVerdaderoResolucion.new(lambda {|un_numero| un_numero > 0})})
+    end
+
+    instancia = TestPrimerVerdadero.new
+
+    instancia.duplicated.should == 5
+  end
+
+  it 'si hay dos metodos duplicados, tiene que aplicarle una funcion y el primer resultado verdadero es el que devuelve' do
+    class TestSegundoVerdadero
+      uses Tercero + (Cuarto < {:duplicated => PrimerVerdaderoResolucion.new(lambda {|un_numero| un_numero < 0})})
+    end
+
+    instancia = TestSegundoVerdadero.new
+
+    instancia.duplicated.should == -2
+  end
+
+  it 'si hay dos metodos duplicados, tiene que aplicarle una funcion y el primer resultado verdadero es el que devuelve pero como ninguno da verdaero, tira un error' do
+    class TestSegundoVerdadero
+      uses Tercero + (Cuarto < {:duplicated => PrimerVerdaderoResolucion.new(lambda {|un_numero| un_numero == 0})})
+    end
+
+    instancia = TestSegundoVerdadero.new
+
+    expect {instancia.duplicated}.to raise_error
+  end
 end
