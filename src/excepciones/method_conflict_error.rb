@@ -1,0 +1,2 @@
+class MethodConflictError < StandardError
+end

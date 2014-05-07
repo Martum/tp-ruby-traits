@@ -1,3 +1,5 @@
+require_relative '../excepciones/no_match_error'
+
 class PrimerVerdaderoResolucion
 
   attr_accessor :funcion_resuelve
@@ -18,7 +20,7 @@ class PrimerVerdaderoResolucion
       elsif (funcion.call(res2))
         res2
       else
-        raise 'ninguno coincide'
+        raise NoMatchError, 'Ningun metodo coincidio con la condicion'
       end
 
     }

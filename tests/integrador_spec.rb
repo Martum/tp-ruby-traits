@@ -80,7 +80,7 @@ describe 'Test integrador' do
   it "al invocar duplicado_excepcion se deberia ejecutar la resolucion por default (excepcion)" do
     expect {
       integrador_obj.duplicado_excepcion
-    }.to raise_error(RuntimeError)
+    }.to raise_error(MethodConflictError)
   end
 
   it "al invocar un metodo inexistente, deberia fallar con excepcion" do

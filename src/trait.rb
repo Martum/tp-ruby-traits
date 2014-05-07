@@ -1,6 +1,7 @@
 require '../src/open_object'
 require '../src/open_symbol'
 require '../src/trait_object'
+require_relative 'excepciones/method_already_exists_error'
 require '../src/resoluciones/arrojar_excepcion_resolucion'
 # La magia
 class Trait

@@ -1,0 +1,2 @@
+class MethodAlreadyExistsError < StandardError
+end

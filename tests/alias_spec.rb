@@ -39,6 +39,6 @@ describe 'Prueba alias de metodos' do
       class Matematica3
         uses OperacionesMatematicas << (:te_sumo_20 > :te_resto_10)
       end
-    }.to raise_error
+    }.to raise_error(MethodAlreadyExistsError)
   end
 end

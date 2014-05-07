@@ -127,6 +127,6 @@ describe 'Resolver conflictos' do
 
     instancia = TestSegundoVerdadero.new
 
-    expect {instancia.duplicated}.to raise_error
+    expect {instancia.duplicated}.to raise_error(NoMatchError)
   end
 end

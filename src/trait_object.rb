@@ -1,6 +1,5 @@
 require '../src/trait'
 
-
 # Clase de la que se instanciaran los objetos-clases Traits
 class TraitObject
   attr_accessor :metodos, :hash_resoluciones
@@ -89,7 +88,7 @@ class TraitObject
 
     # Existe metodo new, raise exception
     if self.tengo_metodo?(metodo_new) then
-      raise "El metodo #{metodo_new} ya existe, no se puede generar alias"
+      raise MethodAlreadyExistsError, "El metodo #{metodo_new} ya existe, no se puede generar alias"
     end
 
     # Crea una copia de este Objeto, aliasea el metodo indicado y devuelve el nuevo objeto

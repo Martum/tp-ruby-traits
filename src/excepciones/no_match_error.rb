@@ -1,0 +1,2 @@
+class NoMatchError < StandardError
+end
