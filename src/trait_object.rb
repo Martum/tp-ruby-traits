@@ -60,7 +60,7 @@ class TraitObject
 
     # No existe metodo, raise exception
     if not(self.tengo_metodo?(un_metodo)) then
-      raise NoMethodError, "method does not exists"
+      raise NoMethodError, "El metodo #{un_metodo} no existe, no se puede restar"
     end
 
     # Crea una copia de este Objeto, remueve el metodo indicado y devuelve el nuevo objeto
@@ -84,12 +84,12 @@ class TraitObject
 
     # No existe metodo old, raise exception
     if not(self.tengo_metodo?(metodo_old)) then
-      raise NoMethodError, "old method does not exists"
+      raise NoMethodError, "El metodo #{metodo_old} no existe, no se puede generar alias"
     end
 
     # Existe metodo new, raise exception
     if self.tengo_metodo?(metodo_new) then
-      raise "new_method_alias_already_exists"
+      raise "El metodo #{metodo_new} ya existe, no se puede generar alias"
     end
 
     # Crea una copia de este Objeto, aliasea el metodo indicado y devuelve el nuevo objeto
