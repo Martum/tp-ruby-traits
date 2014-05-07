@@ -1,8 +1,8 @@
 require 'rspec'
 require '../src/trait'
-require '../src/ejecutar_ambos_metodos_resolucion'
-require '../src/fold_l_resolucion'
-require '../src/primer_verdadero_resolucion'
+require '../src/resoluciones/ejecutar_ambos_metodos_resolucion'
+require '../src/resoluciones/fold_l_resolucion'
+require '../src/resoluciones/primer_verdadero_resolucion'
 
 Trait.define do
   name :ModificoEstadoVariable1
